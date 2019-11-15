@@ -5,8 +5,8 @@ public class Montapuerco extends Cartas{
     public Montapuerco() {
     }
 
-    public Montapuerco(int puntosDanio, int puntosVida) {
-        super(Montapuerco.class.getSimpleName(),puntosDanio, puntosVida);
+    public Montapuerco(String nombre,int puntosDanio, int puntosVida) {
+        super(nombre,puntosDanio, puntosVida);
     }
     
     @Override

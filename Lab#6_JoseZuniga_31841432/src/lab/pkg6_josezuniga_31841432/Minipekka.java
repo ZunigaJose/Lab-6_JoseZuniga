@@ -5,8 +5,8 @@ public class Minipekka extends Cartas{
     public Minipekka() {
     }
 
-    public Minipekka(int puntosDanio, int puntosVida) {
-        super(Minipekka.class.getSimpleName(), puntosDanio, puntosVida);
+    public Minipekka(String nombre, int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
     @Override

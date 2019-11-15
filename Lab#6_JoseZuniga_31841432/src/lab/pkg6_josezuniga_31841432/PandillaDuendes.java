@@ -5,8 +5,8 @@ public class PandillaDuendes extends Cartas{
     public PandillaDuendes() {
     }
 
-    public PandillaDuendes(int puntosDanio, int puntosVida) {
-        super("Pandilla de Duendes", puntosDanio, puntosVida);
+    public PandillaDuendes(String nombre,int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
         @Override

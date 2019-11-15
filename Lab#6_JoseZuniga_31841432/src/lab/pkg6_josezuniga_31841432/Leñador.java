@@ -5,8 +5,8 @@ public class Leñador extends Cartas{
     public Leñador() {
     }
 
-    public Leñador(int puntosDanio, int puntosVida) {
-        super(Leñador.class.getSimpleName(), puntosDanio, puntosVida);
+    public Leñador(String nombre, int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
         @Override
     public String velocidad() {

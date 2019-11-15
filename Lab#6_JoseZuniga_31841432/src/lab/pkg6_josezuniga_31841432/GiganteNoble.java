@@ -5,8 +5,8 @@ public class GiganteNoble extends Cartas{
     public GiganteNoble() {
     }
 
-    public GiganteNoble(int puntosDanio, int puntosVida) {
-        super("Gigante Noble", puntosDanio, puntosVida);
+    public GiganteNoble(String nombre, int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
         @Override

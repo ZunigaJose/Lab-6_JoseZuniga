@@ -5,8 +5,8 @@ public class Golem extends Cartas{
     public Golem() {
     }
 
-    public Golem(int puntosDanio, int puntosVida) {
-        super(Golem.class.getSimpleName(), puntosDanio, puntosVida);
+    public Golem(String nombre, int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
         @Override

@@ -5,8 +5,8 @@ public class Dragon_Infernal extends Cartas{
     public Dragon_Infernal() {
     }
 
-    public Dragon_Infernal(int puntosDanio, int puntosVida) {
-        super("Dragon Infernal", puntosDanio, puntosVida);
+    public Dragon_Infernal(String nombre,int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
         @Override

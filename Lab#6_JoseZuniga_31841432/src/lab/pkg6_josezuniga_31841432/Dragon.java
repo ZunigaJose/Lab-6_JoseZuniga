@@ -5,8 +5,8 @@ public class Dragon extends Cartas {
     public Dragon() {
     }
 
-    public Dragon(int puntosDanio, int puntosVida) {
-        super(Dragon.class.getSimpleName(), puntosDanio, puntosVida);
+    public Dragon(String nombre, int puntosDanio, int puntosVida) {
+        super(nombre, puntosDanio, puntosVida);
     }
     
     @Override

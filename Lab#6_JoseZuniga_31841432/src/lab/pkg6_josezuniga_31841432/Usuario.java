@@ -13,7 +13,7 @@ public class Usuario {
     public Usuario() {
     }
 
-    public Usuario(String nombre, String apellido, String userName, String password, Date fechaNacimiento, int edad, Color colorFav) {
+    public Usuario(String nombre, String apellido, String userName, String password, Date fechaNacimiento, Color colorFav) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.userName = userName;
@@ -61,14 +61,6 @@ public class Usuario {
 
     public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
     }
 
     public Color getColorFav() {
