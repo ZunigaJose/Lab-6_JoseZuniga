@@ -8,7 +8,9 @@ package lab.pkg6_josezuniga_31841432;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,6 +23,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        miUsuarioSecreto();
     }
 
     /**
@@ -47,6 +50,18 @@ public class Principal extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         creaColor = new javax.swing.JButton();
         creaCrear = new javax.swing.JButton();
+        jdPrincipal = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        tabCartas = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        menupLogin = new javax.swing.JMenu();
+        menupSalir = new javax.swing.JMenu();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         iniUser = new javax.swing.JTextField();
@@ -124,7 +139,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(158, 158, 158)
                         .addComponent(creaCrear)))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,6 +182,93 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 731, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 478, Short.MAX_VALUE)
+        );
+
+        tabCartas.addTab("Cartas", jPanel3);
+
+        jList1.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jList1);
+
+        jLabel11.setText("Amigos del Clan");
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
+                .addContainerGap(465, Short.MAX_VALUE))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel12)
+                .addGap(60, 60, 60)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(78, Short.MAX_VALUE))
+        );
+
+        tabCartas.addTab("Amigos / Clan", jPanel4);
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabCartas)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabCartas)
+                .addContainerGap())
+        );
+
+        menupLogin.setText("LoggIn");
+        menupLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menupLoginActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(menupLogin);
+
+        menupSalir.setText("Salir");
+        jMenuBar1.add(menupSalir);
+
+        jdPrincipal.setJMenuBar(jMenuBar1);
+
+        javax.swing.GroupLayout jdPrincipalLayout = new javax.swing.GroupLayout(jdPrincipal.getContentPane());
+        jdPrincipal.getContentPane().setLayout(jdPrincipalLayout);
+        jdPrincipalLayout.setHorizontalGroup(
+            jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jdPrincipalLayout.setVerticalGroup(
+            jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -177,8 +279,18 @@ public class Principal extends javax.swing.JFrame {
         jLabel3.setText("Contraseña");
 
         iniIngresar.setText("Ingresar");
+        iniIngresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniIngresarActionPerformed(evt);
+            }
+        });
 
         iniCrear.setText("Crear Usuario");
+        iniCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniCrearActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("No tiene usuario? Cree uno aqui:");
 
@@ -244,6 +356,7 @@ public class Principal extends javax.swing.JFrame {
     private void creaColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaColorActionPerformed
         Color c = JColorChooser.showDialog(this, "Eleccion Color", creaColor.getBackground());
         creaColor.setBackground(c);
+        
     }//GEN-LAST:event_creaColorActionPerformed
 
     private void creaCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_creaCrearActionPerformed
@@ -264,6 +377,38 @@ public class Principal extends javax.swing.JFrame {
         creaFecha.setDate(new Date());
         creacionUsuario.setVisible(false);
     }//GEN-LAST:event_creaCrearActionPerformed
+
+    private void iniCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniCrearActionPerformed
+        creacionUsuario.pack();
+        creacionUsuario.setLocationRelativeTo(null);
+        creacionUsuario.setVisible(true);
+    }//GEN-LAST:event_iniCrearActionPerformed
+
+    private void iniIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniIngresarActionPerformed
+        boolean entro = false;
+        for (Usuario usuario : usuarios) {
+            if (usuario.getUserName().equals(iniUser.getText())) {
+                if (usuario.getPassword().equals(iniPass.getText())) {
+                    entro = true;
+                    iniPass.setText("");
+                    iniUser.setText("");
+                    jdPrincipal.setVisible(true);
+                    setUsuario();
+                    break;
+                }
+            }
+        }
+        if (!entro) {
+            JOptionPane.showMessageDialog(this, "Error Usuario No encontrado!!!\nSi no tiene usuario lo puede crear");
+            iniPass.setText("");
+            iniUser.setText("");
+        }
+    }//GEN-LAST:event_iniIngresarActionPerformed
+
+    private void menupLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupLoginActionPerformed
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+    }//GEN-LAST:event_menupLoginActionPerformed
 
     /**
      * @param args the command line arguments
@@ -299,6 +444,14 @@ public class Principal extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void setUsuario(){
+        
+    }
+    
+    private void miUsuarioSecreto(){
+        usuarios.add(new Usuario("Jose", "Zuniga", "zunigajose21", "lab6", new Date(2000, 9, 8), Color.BLUE));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField creaApe;
@@ -315,6 +468,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField iniUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -323,7 +478,17 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JList<String> jList1;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JDialog jdPrincipal;
+    private javax.swing.JMenu menupLogin;
+    private javax.swing.JMenu menupSalir;
+    private javax.swing.JTabbedPane tabCartas;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Usuario> usuarios = new ArrayList<>();
 }

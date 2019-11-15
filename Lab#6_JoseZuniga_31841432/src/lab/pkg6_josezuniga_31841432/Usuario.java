@@ -19,10 +19,16 @@ public class Usuario {
         this.userName = userName;
         this.password = password;
         this.fechaNacimiento = fechaNacimiento;
-        this.edad = edad;
+        calcularEdad();
         this.colorFav = colorFav;
     }
 
+    private void calcularEdad(){
+        Date fechaAct = new Date();
+        long tiempo = fechaAct.getTime() - fechaNacimiento.getTime();
+        edad = ((int)(tiempo * 1000 * 60 * 60 * 24) / 365);
+    }
+    
     public String getNombre() {
         return nombre;
     }
