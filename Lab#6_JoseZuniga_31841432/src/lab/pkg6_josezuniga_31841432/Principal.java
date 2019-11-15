@@ -257,13 +257,10 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(jLabel13)
                     .addComponent(comboClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jButton1)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -275,7 +272,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabCartas, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
+                .addComponent(tabCartas)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -295,6 +292,11 @@ public class Principal extends javax.swing.JFrame {
         jMenuBar1.add(menupLogin);
 
         menupSalir.setText("Salir");
+        menupSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menupSalirActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(menupSalir);
 
         jdPrincipal.setJMenuBar(jMenuBar1);
@@ -478,12 +480,28 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (comboClan.getSelectedIndex() >= 0) {
-            if (comboClan.getSelectedItem().toString().equals(jlClan.toString())) {
-                JOptionPane.showMessageDialog(this, "Usted ya esta en este clan");
-                
+            if (comboClan.getSelectedItem().toString().equals(jlClan.getText())) {
+                JOptionPane.showMessageDialog(jdPrincipal, "Usted ya esta en ese clan");
+            } else {
+                for (Clan clan : clanes) {
+                    if (clan.toString().equals(jlClan.getText())) {
+                        for (Usuario usuario : clan.getUsuarios()) {
+                            if (usuario.toString().equals(usuarioSelected.toString())) {
+                                clan.getUsuarios().remove(usuario);
+                            }
+                        }
+                    }
+                    if (clan.toString().equals(comboClan.getSelectedItem().toString())) {
+                        clan.setUsuario(usuarioSelected);
+                    }
+                }
             }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void menupSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_menupSalirActionPerformed
 
     /**
      * @param args the command line arguments
