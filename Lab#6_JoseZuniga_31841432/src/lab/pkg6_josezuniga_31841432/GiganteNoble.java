@@ -1,27 +1,27 @@
 package lab.pkg6_josezuniga_31841432;
 
-public class Golem extends Cartas{
+public class GiganteNoble extends Cartas{
 
-    public Golem() {
+    public GiganteNoble() {
     }
 
-    public Golem(int puntosDanio, int puntosVida) {
-        super(Golem.class.getSimpleName(), puntosDanio, puntosVida);
+    public GiganteNoble(int puntosDanio, int puntosVida) {
+        super("Gigante Noble", puntosDanio, puntosVida);
     }
     
         @Override
     public String velocidad() {
-        return "Baja";
+        return "Media";
     }
 
     @Override
     public int costeElixir() {
-        return 8;
+        return 6;
     }
 
     @Override
     public String tipo() {
-        return "Epica";
+        return "Comun";
     }
 
     @Override

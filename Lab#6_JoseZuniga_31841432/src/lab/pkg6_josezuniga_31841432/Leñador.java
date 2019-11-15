@@ -1,15 +1,14 @@
 package lab.pkg6_josezuniga_31841432;
 
-public class Montapuerco extends Cartas{
+public class Leñador extends Cartas{
 
-    public Montapuerco() {
+    public Leñador() {
     }
 
-    public Montapuerco(int puntosDanio, int puntosVida) {
-        super(Montapuerco.class.getSimpleName(),puntosDanio, puntosVida);
+    public Leñador(int puntosDanio, int puntosVida) {
+        super(Leñador.class.getSimpleName(), puntosDanio, puntosVida);
     }
-    
-    @Override
+        @Override
     public String velocidad() {
         return "Alta";
     }
@@ -21,11 +20,12 @@ public class Montapuerco extends Cartas{
 
     @Override
     public String tipo() {
-        return "Especial";
+        return "Legendaria";
     }
 
     @Override
     public String objetivo() {
         return "Terrestres";
     }
+    
 }

@@ -1,17 +1,17 @@
 package lab.pkg6_josezuniga_31841432;
 
-public class Montapuerco extends Cartas{
+public class Dragon extends Cartas {
 
-    public Montapuerco() {
+    public Dragon() {
     }
 
-    public Montapuerco(int puntosDanio, int puntosVida) {
-        super(Montapuerco.class.getSimpleName(),puntosDanio, puntosVida);
+    public Dragon(int puntosDanio, int puntosVida) {
+        super(Dragon.class.getSimpleName(), puntosDanio, puntosVida);
     }
     
     @Override
     public String velocidad() {
-        return "Alta";
+        return "Media";
     }
 
     @Override
@@ -21,11 +21,11 @@ public class Montapuerco extends Cartas{
 
     @Override
     public String tipo() {
-        return "Especial";
+        return "Epica";
     }
 
     @Override
     public String objetivo() {
-        return "Terrestres";
+        return "Aereos y Terrestres";
     }
 }
