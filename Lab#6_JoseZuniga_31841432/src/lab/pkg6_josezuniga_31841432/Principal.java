@@ -57,6 +57,8 @@ public class Principal extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         tabCartas = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        arbolitoLindo = new javax.swing.JTree();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jlClanAmiguitos = new javax.swing.JList<>();
@@ -65,9 +67,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         comboClan = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menupLogin = new javax.swing.JMenu();
         menupSalir = new javax.swing.JMenu();
+        crearClan = new javax.swing.JDialog();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        clanNom = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        clantipo = new javax.swing.JComboBox<>();
+        opClan = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         iniUser = new javax.swing.JTextField();
@@ -193,16 +203,31 @@ public class Principal extends javax.swing.JFrame {
                 tabCartasStateChanged(evt);
             }
         });
+        tabCartas.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                tabCartasFocusGained(evt);
+            }
+        });
+
+        javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Mazo");
+        arbolitoLindo.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane2.setViewportView(arbolitoLindo);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(457, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(63, 63, 63))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 478, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(95, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
 
         tabCartas.addTab("Cartas", jPanel3);
@@ -221,6 +246,13 @@ public class Principal extends javax.swing.JFrame {
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Crear Clan");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -244,8 +276,13 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addGap(163, 163, 163))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addGap(163, 163, 163))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                .addComponent(jButton2)
+                                .addGap(119, 119, 119))))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -260,7 +297,10 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(93, 93, 93)
+                        .addComponent(jButton2)))
                 .addContainerGap(75, Short.MAX_VALUE))
         );
 
@@ -310,6 +350,71 @@ public class Principal extends javax.swing.JFrame {
         jdPrincipalLayout.setVerticalGroup(
             jdPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        jLabel12.setText("Nombre");
+
+        jLabel14.setText("Tipo");
+
+        clantipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bronce", "Plata", "Oro", "Legendario" }));
+
+        opClan.setText("Crear Clan");
+        opClan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                opClanActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel14))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(clanNom)
+                            .addComponent(clantipo, 0, 159, Short.MAX_VALUE)))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addComponent(opClan)))
+                .addContainerGap(79, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(clanNom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel14)
+                    .addComponent(clantipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(86, 86, 86)
+                .addComponent(opClan)
+                .addContainerGap(121, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout crearClanLayout = new javax.swing.GroupLayout(crearClan.getContentPane());
+        crearClan.getContentPane().setLayout(crearClanLayout);
+        crearClanLayout.setHorizontalGroup(
+            crearClanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crearClanLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        crearClanLayout.setVerticalGroup(
+            crearClanLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crearClanLayout.createSequentialGroup()
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -458,7 +563,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void tabCartasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabCartasStateChanged
         if (tabCartas.getSelectedIndex() == 1) {
-            DefaultComboBoxModel comboModelo = (DefaultComboBoxModel)comboClan.getModel();
+            DefaultComboBoxModel comboModelo = new DefaultComboBoxModel();
             for (Clan clan : clanes) {
                 comboModelo.addElement(clan);
             }
@@ -479,6 +584,9 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_tabCartasStateChanged
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultListModel modelo = new DefaultListModel();
+        Usuario x = new Usuario();
+        int y = 0;
         if (comboClan.getSelectedIndex() >= 0) {
             if (comboClan.getSelectedItem().toString().equals(jlClan.getText())) {
                 JOptionPane.showMessageDialog(jdPrincipal, "Usted ya esta en ese clan");
@@ -487,21 +595,61 @@ public class Principal extends javax.swing.JFrame {
                     if (clan.toString().equals(jlClan.getText())) {
                         for (Usuario usuario : clan.getUsuarios()) {
                             if (usuario.toString().equals(usuarioSelected.toString())) {
-                                clan.getUsuarios().remove(usuario);
+                                x = usuario;
+                                y = clanes.indexOf(clan);
                             }
                         }
                     }
+                    ((Clan)clanes.get(y)).getUsuarios().remove(x);
                     if (clan.toString().equals(comboClan.getSelectedItem().toString())) {
+                        for (Usuario usuario : clan.getUsuarios()) {
+                            modelo.addElement(usuario);
+                        }
                         clan.setUsuario(usuarioSelected);
                     }
                 }
+                jlClanAmiguitos.setModel(modelo);
             }
         }
+        tabCartas.setSelectedIndex(0);
+        tabCartas.setSelectedIndex(1);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void menupSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menupSalirActionPerformed
         System.exit(0);
     }//GEN-LAST:event_menupSalirActionPerformed
+
+    private void opClanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_opClanActionPerformed
+        boolean error = false;
+        try {
+            clanes.add(new Clan(clanNom.getText(), clantipo.getSelectedItem().toString(), new Date(), usuarioSelected));
+        } catch (Exception e) {
+            error = true;
+            JOptionPane.showMessageDialog(crearClan, "Ocurrio un Error super fatal");
+        }
+        if (!error) {
+            tabCartas.setSelectedIndex(0);
+            tabCartas.setSelectedIndex(1);
+            crearClan.setVisible(false);
+            clanNom.setText("");
+        }
+    }//GEN-LAST:event_opClanActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        crearClan.setLocationRelativeTo(null);
+        crearClan.pack();
+        crearClan.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void tabCartasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tabCartasFocusGained
+        if (tabCartas.getSelectedIndex() == 1) {
+            DefaultComboBoxModel comboModelo = new DefaultComboBoxModel();
+            for (Clan clan : clanes) {
+                comboModelo.addElement(clan);
+            }
+            comboClan.setModel(comboModelo);
+        }
+    }//GEN-LAST:event_tabCartasFocusGained
 
     /**
      * @param args the command line arguments
@@ -566,6 +714,9 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTree arbolitoLindo;
+    private javax.swing.JTextField clanNom;
+    private javax.swing.JComboBox<String> clantipo;
     private javax.swing.JComboBox<String> comboClan;
     private javax.swing.JTextField creaApe;
     private javax.swing.JButton creaColor;
@@ -575,15 +726,19 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPasswordField creaPass;
     private javax.swing.JTextField creaUser;
     private javax.swing.JDialog creacionUsuario;
+    private javax.swing.JDialog crearClan;
     private javax.swing.JButton iniCrear;
     private javax.swing.JButton iniIngresar;
     private javax.swing.JPasswordField iniPass;
     private javax.swing.JTextField iniUser;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -597,12 +752,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jdPrincipal;
     private javax.swing.JLabel jlClan;
     private javax.swing.JList<String> jlClanAmiguitos;
     private javax.swing.JMenu menupLogin;
     private javax.swing.JMenu menupSalir;
+    private javax.swing.JButton opClan;
     private javax.swing.JTabbedPane tabCartas;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Usuario> usuarios = new ArrayList<>();

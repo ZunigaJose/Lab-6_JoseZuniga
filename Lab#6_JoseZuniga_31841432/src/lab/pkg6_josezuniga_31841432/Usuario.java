@@ -1,6 +1,7 @@
 package lab.pkg6_josezuniga_31841432;
 
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Usuario {
@@ -8,7 +9,7 @@ public class Usuario {
     private Date fechaNacimiento;
     private int edad;
     private Color colorFav;
-    //poner mazos?
+    private ArrayList<Mazo> mazo = new ArrayList<>();
 
     public Usuario() {
     }
