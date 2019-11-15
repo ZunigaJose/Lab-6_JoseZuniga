@@ -66,6 +66,9 @@ public class Clan {
     public void setLider(Usuario lider) {
         this.lider = lider;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
 }

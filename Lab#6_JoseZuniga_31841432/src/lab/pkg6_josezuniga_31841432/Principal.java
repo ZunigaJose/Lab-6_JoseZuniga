@@ -8,6 +8,7 @@ package lab.pkg6_josezuniga_31841432;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
@@ -22,6 +23,8 @@ public class Principal extends javax.swing.JFrame {
      * Creates new form Principal
      */
     public Principal() {
+        this.usuarios = new ArrayList<>();
+        this.clanes = new ArrayList<>();
         initComponents();
         miUsuarioSecreto();
     }
@@ -56,9 +59,12 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jlClanAmiguitos = new javax.swing.JList<>();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
+        jlClan = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        comboClan = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         menupLogin = new javax.swing.JMenu();
         menupSalir = new javax.swing.JMenu();
@@ -182,6 +188,12 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        tabCartas.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabCartasStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -195,12 +207,22 @@ public class Principal extends javax.swing.JFrame {
 
         tabCartas.addTab("Cartas", jPanel3);
 
-        jList1.setModel(new DefaultListModel());
-        jScrollPane1.setViewportView(jList1);
+        jlClanAmiguitos.setModel(new DefaultListModel());
+        jScrollPane1.setViewportView(jlClanAmiguitos);
 
         jLabel11.setText("Amigos del Clan");
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlClan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jlClan.setName("jlClan"); // NOI18N
+
+        jLabel13.setText("Clanes disp.");
+
+        jButton1.setText("Unirse al clan");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -209,21 +231,40 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12))
-                .addContainerGap(465, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jlClan)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel13)
+                        .addGap(18, 18, 18)
+                        .addComponent(comboClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(208, 208, 208))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(163, 163, 163))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12)
-                .addGap(60, 60, 60)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addComponent(jlClan)
+                .addGap(57, 57, 57)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jLabel13)
+                    .addComponent(comboClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jButton1)))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
         tabCartas.addTab("Amigos / Clan", jPanel4);
@@ -234,7 +275,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabCartas)
+                .addComponent(tabCartas, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -390,8 +431,11 @@ public class Principal extends javax.swing.JFrame {
             if (usuario.getUserName().equals(iniUser.getText())) {
                 if (usuario.getPassword().equals(iniPass.getText())) {
                     entro = true;
+                    usuarioSelected = usuario;
                     iniPass.setText("");
                     iniUser.setText("");
+                    jdPrincipal.pack();
+                    jdPrincipal.setLocationRelativeTo(null);
                     jdPrincipal.setVisible(true);
                     setUsuario();
                     break;
@@ -409,6 +453,37 @@ public class Principal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }//GEN-LAST:event_menupLoginActionPerformed
+
+    private void tabCartasStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabCartasStateChanged
+        if (tabCartas.getSelectedIndex() == 1) {
+            DefaultComboBoxModel comboModelo = (DefaultComboBoxModel)comboClan.getModel();
+            for (Clan clan : clanes) {
+                comboModelo.addElement(clan);
+            }
+            comboClan.setModel(comboModelo);
+            if (tieneClan()) {
+                jlClan.setText(usuarioSelectedClan.toString());
+                DefaultListModel modeloLista = (DefaultListModel)jlClanAmiguitos.getModel();
+                for (Usuario usuario : usuarioSelectedClan.getUsuarios()) {
+                    if (usuario != usuarioSelected) {
+                        modeloLista.addElement(usuario);
+                    }
+                }
+            } else {
+                jlClan.setText("No tiene Clan Actual");
+                
+            }
+        }
+    }//GEN-LAST:event_tabCartasStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (comboClan.getSelectedIndex() >= 0) {
+            if (comboClan.getSelectedItem().toString().equals(jlClan.toString())) {
+                JOptionPane.showMessageDialog(this, "Usted ya esta en este clan");
+                
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -449,11 +524,31 @@ public class Principal extends javax.swing.JFrame {
         
     }
     
+    private boolean tieneClan(){
+        for (Clan clan : clanes) {
+            System.out.println(clan.getUsuarios());
+            for (Usuario usuario : clan.getUsuarios()) {
+                System.out.println(usuario.toString());
+                if (usuario.getUserName().equals(usuarioSelected.getUserName())) {
+                    if (usuario.getPassword().equals(usuarioSelected.getPassword())) {
+                        usuarioSelectedClan = clan;
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    
     private void miUsuarioSecreto(){
-        usuarios.add(new Usuario("Jose", "Zuniga", "zunigajose21", "lab6", new Date(2000, 9, 8), Color.BLUE));
+        Usuario usuarionuevo = new Usuario("Jose", "Zuniga", "zunigajose21", "lab6", new Date(2000, 9, 8), Color.BLUE);
+        usuarios.add(usuarionuevo);
+        clanes.add(new Clan("loskillers", "Oro", new Date(), usuarioSelected));
+        ((Clan)clanes.get(0)).setUsuario(usuarionuevo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboClan;
     private javax.swing.JTextField creaApe;
     private javax.swing.JButton creaColor;
     private javax.swing.JButton creaCrear;
@@ -466,10 +561,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton iniIngresar;
     private javax.swing.JPasswordField iniPass;
     private javax.swing.JTextField iniUser;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -478,7 +574,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -486,9 +581,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jdPrincipal;
+    private javax.swing.JLabel jlClan;
+    private javax.swing.JList<String> jlClanAmiguitos;
     private javax.swing.JMenu menupLogin;
     private javax.swing.JMenu menupSalir;
     private javax.swing.JTabbedPane tabCartas;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Usuario> usuarios = new ArrayList<>();
+    private Usuario usuarioSelected;
+    private ArrayList<Clan> clanes;
+    private Clan usuarioSelectedClan;
 }
