@@ -12,6 +12,8 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JColorChooser;
 import javax.swing.JOptionPane;
+import javax.swing.tree.DefaultMutableTreeNode;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
@@ -59,6 +61,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         arbolitoLindo = new javax.swing.JTree();
+        cartaAgregar = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jlClanAmiguitos = new javax.swing.JList<>();
@@ -78,6 +81,19 @@ public class Principal extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         clantipo = new javax.swing.JComboBox<>();
         opClan = new javax.swing.JButton();
+        CrearCarta = new javax.swing.JDialog();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        crearcartaCombo = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        cartasNombre = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        cartasVida = new javax.swing.JTextField();
+        cartasDanio = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         iniUser = new javax.swing.JTextField();
@@ -210,24 +226,48 @@ public class Principal extends javax.swing.JFrame {
         });
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Mazo");
+        javax.swing.tree.DefaultMutableTreeNode treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 1");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 2");
+        treeNode1.add(treeNode2);
+        treeNode2 = new javax.swing.tree.DefaultMutableTreeNode("Mazo 3");
+        treeNode1.add(treeNode2);
         arbolitoLindo.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        arbolitoLindo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                arbolitoLindoMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(arbolitoLindo);
+
+        cartaAgregar.setText("Agregar Carta");
+        cartaAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cartaAgregarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(457, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addComponent(cartaAgregar)
+                .addGap(63, 63, 63)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(95, Short.MAX_VALUE)
+                .addContainerGap(84, Short.MAX_VALUE)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50))
+                .addGap(61, 61, 61))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(213, 213, 213)
+                .addComponent(cartaAgregar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabCartas.addTab("Cartas", jPanel3);
@@ -267,22 +307,24 @@ public class Principal extends javax.swing.JFrame {
                         .addComponent(jlClan)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(comboClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(208, 208, 208))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addGap(163, 163, 163))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                .addComponent(jButton2)
-                                .addGap(119, 119, 119))))))
+                            .addComponent(jLabel11)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(comboClan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(89, 89, 89))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addGap(44, 44, 44))
+                                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))))
+                        .addGap(186, 186, 186))))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +354,7 @@ public class Principal extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabCartas)
+                .addComponent(tabCartas, javax.swing.GroupLayout.DEFAULT_SIZE, 654, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -415,6 +457,103 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, crearClanLayout.createSequentialGroup()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
+        );
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel15.setText("Mazo:");
+
+        crearcartaCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mazo 1", "Mazo 2", "Mazo 3" }));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel16.setText("Tipo Carta");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Minipekka", "Montapuerco", "Golem", "Leñador", "Dragon Infernal", "Dragon", "Gigante Noble", "Pandilla de Duendes" }));
+
+        jButton3.setText("Agregar a Mazo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel17.setText("Nombre");
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel18.setText("Vida");
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel19.setText("Daño");
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addComponent(jButton3))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(53, 53, 53)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel16)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15)
+                                .addGap(36, 36, 36)
+                                .addComponent(crearcartaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel18)
+                                    .addComponent(jLabel19))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cartasNombre)
+                                    .addComponent(cartasVida)
+                                    .addComponent(cartasDanio))))))
+                .addContainerGap(229, Short.MAX_VALUE))
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(81, 81, 81)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15)
+                    .addComponent(crearcartaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel16)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel17)
+                    .addComponent(cartasNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(cartasVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(cartasDanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 180, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addGap(36, 36, 36))
+        );
+
+        javax.swing.GroupLayout CrearCartaLayout = new javax.swing.GroupLayout(CrearCarta.getContentPane());
+        CrearCarta.getContentPane().setLayout(CrearCartaLayout);
+        CrearCartaLayout.setHorizontalGroup(
+            CrearCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        CrearCartaLayout.setVerticalGroup(
+            CrearCartaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -651,6 +790,93 @@ public class Principal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_tabCartasFocusGained
 
+    private void arbolitoLindoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolitoLindoMouseClicked
+        if (evt.isMetaDown()) {
+            int row = arbolitoLindo.getClosestRowForLocation(evt.getX(), evt.getY());
+            Object v1 = arbolitoLindo.getSelectionPath().getLastPathComponent();
+            nodoSeleccionado = (DefaultMutableTreeNode) v1;
+
+        }
+    }//GEN-LAST:event_arbolitoLindoMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        boolean error = false;
+        try {
+            Integer.parseInt(cartasDanio.getText());
+            Integer.parseInt(cartasVida.getText());
+        } catch (Exception e) {
+            error = true;
+            JOptionPane.showMessageDialog(CrearCarta, "Ocurrio un error bien feo!");
+        }
+        if (!error) {
+            DefaultTreeModel modeloA = (DefaultTreeModel) arbolitoLindo.getModel();
+            DefaultMutableTreeNode nodoNuevo;
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modeloA.getRoot();
+            Cartas carta = new Cartas() {
+                @Override
+                public String velocidad() {
+                    return "";
+                }
+
+                @Override
+                public int costeElixir() {
+                    return 0;
+                }
+
+                @Override
+                public String tipo() {
+                    return "";
+                }
+
+                @Override
+                public String objetivo() {
+                    return "";
+                }
+            };
+            switch (crearcartaCombo.getSelectedIndex()) {
+                case 0:
+                    System.out.println("Hola");
+                    carta = new Minipekka(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 1:
+                    carta = new Montapuerco(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 2:
+                    carta = new Golem(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 3:
+                    carta = new Leñador(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 4:
+                    carta = new Dragon_Infernal(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 5:
+                    carta = new Dragon(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 6:
+                    carta = new GiganteNoble(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+                case 7:
+                    carta = new PandillaDuendes(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    break;
+            }
+            for (int i = 0; i < raiz.getChildCount(); i++) {
+                if (raiz.getChildAt(i).toString().equals(crearcartaCombo.getSelectedItem().toString())) {
+                    if (!hay3((DefaultMutableTreeNode)raiz.getChildAt(i))) {
+                        ((DefaultMutableTreeNode)raiz.getChildAt(i)).add(new DefaultMutableTreeNode(carta));
+                    }
+                }
+            }
+            modeloA.reload();
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void cartaAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cartaAgregarActionPerformed
+        CrearCarta.pack();
+        CrearCarta.setLocationRelativeTo(jdPrincipal);
+        CrearCarta.setVisible(true);
+    }//GEN-LAST:event_cartaAgregarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -662,7 +888,7 @@ public class Principal extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -690,6 +916,13 @@ public class Principal extends javax.swing.JFrame {
         
     }
     
+    private boolean hay3(DefaultMutableTreeNode nodo){
+        if (nodo.getChildCount() >= 3) {
+            return true;
+        }
+        return false;
+    }
+    
     private boolean tieneClan(){
         for (Clan clan : clanes) {
             System.out.println(clan.getUsuarios());
@@ -714,7 +947,12 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JDialog CrearCarta;
     private javax.swing.JTree arbolitoLindo;
+    private javax.swing.JButton cartaAgregar;
+    private javax.swing.JTextField cartasDanio;
+    private javax.swing.JTextField cartasNombre;
+    private javax.swing.JTextField cartasVida;
     private javax.swing.JTextField clanNom;
     private javax.swing.JComboBox<String> clantipo;
     private javax.swing.JComboBox<String> comboClan;
@@ -727,18 +965,26 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField creaUser;
     private javax.swing.JDialog creacionUsuario;
     private javax.swing.JDialog crearClan;
+    private javax.swing.JComboBox<String> crearcartaCombo;
     private javax.swing.JButton iniCrear;
     private javax.swing.JButton iniIngresar;
     private javax.swing.JPasswordField iniPass;
     private javax.swing.JTextField iniUser;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -753,6 +999,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jdPrincipal;
@@ -767,4 +1014,5 @@ public class Principal extends javax.swing.JFrame {
     private Usuario usuarioSelected;
     private ArrayList<Clan> clanes;
     private Clan usuarioSelectedClan;
+    private DefaultMutableTreeNode nodoSeleccionado;
 }
