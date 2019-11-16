@@ -811,7 +811,7 @@ public class Principal extends javax.swing.JFrame {
         if (!error) {
             DefaultTreeModel modeloA = (DefaultTreeModel) arbolitoLindo.getModel();
             DefaultMutableTreeNode nodoNuevo;
-            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode)modeloA.getRoot();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) modeloA.getRoot();
             Cartas carta = new Cartas() {
                 @Override
                 public String velocidad() {
@@ -835,7 +835,6 @@ public class Principal extends javax.swing.JFrame {
             };
             switch (crearcartaCombo.getSelectedIndex()) {
                 case 0:
-                    System.out.println("Hola");
                     carta = new Minipekka(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
                     break;
                 case 1:
@@ -860,10 +859,29 @@ public class Principal extends javax.swing.JFrame {
                     carta = new PandillaDuendes(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
                     break;
             }
+            boolean existe = false;
+            DefaultMutableTreeNode nodox;
             for (int i = 0; i < raiz.getChildCount(); i++) {
                 if (raiz.getChildAt(i).toString().equals(crearcartaCombo.getSelectedItem().toString())) {
-                    if (!hay3((DefaultMutableTreeNode)raiz.getChildAt(i))) {
-                        ((DefaultMutableTreeNode)raiz.getChildAt(i)).add(new DefaultMutableTreeNode(carta));
+                    if (!hay3((DefaultMutableTreeNode) raiz.getChildAt(i))) {
+                        for (int j = 0; j < raiz.getChildAt(i).getChildCount(); j++) {
+                            if (raiz.getChildAt(i).getChildAt(j).toString().equals(carta.tipo())) {
+                                ((DefaultMutableTreeNode) raiz.getChildAt(i).getChildAt(j)).add(new DefaultMutableTreeNode(carta));
+                                existe = true;
+                                break;
+                            }
+                        }
+                        if (!existe) {
+                            nodox = (new DefaultMutableTreeNode(carta.tipo()));
+                            ((DefaultMutableTreeNode) nodox).add(new DefaultMutableTreeNode(carta));
+                            for (int j = 0; j < raiz.getChildCount(); j++) {
+                                if (raiz.getChildAt(i).toString().equals(crearcartaCombo.getSelectedItem().toString())) {
+                                    ((DefaultMutableTreeNode) raiz.getChildAt(i)).add(nodox);
+                                }
+                            }
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(CrearCarta, "Ya existen tres elementos!!!");
                     }
                 }
             }
