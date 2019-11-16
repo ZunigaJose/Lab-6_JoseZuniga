@@ -74,6 +74,18 @@ public class Usuario {
         return colorFav;
     }
 
+    public ArrayList<Mazo> getMazo() {
+        return mazo;
+    }
+
+    public void setMazo(ArrayList<Mazo> mazo) {
+        this.mazo = mazo;
+    }
+
+    public void setMazos(Mazo mazo) {
+        this.mazo.add(mazo);
+    }
+    
     public void setColorFav(Color colorFav) {
         this.colorFav = colorFav;
     }

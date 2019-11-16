@@ -969,6 +969,7 @@ public class Principal extends javax.swing.JFrame {
                     System.out.println(carta.tipo());
                     break;
             }
+            ArrayList< Cartas> m1 = new ArrayList<>();
             boolean existe = false;
             DefaultMutableTreeNode nodox;
             for (int i = 0; i < raiz.getChildCount(); i++) {
