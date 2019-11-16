@@ -94,6 +94,21 @@ public class Principal extends javax.swing.JFrame {
         jLabel19 = new javax.swing.JLabel();
         cartasVida = new javax.swing.JTextField();
         cartasDanio = new javax.swing.JTextField();
+        menuPopUp = new javax.swing.JPopupMenu();
+        VerInfo = new javax.swing.JMenuItem();
+        Modificar = new javax.swing.JMenuItem();
+        InfoCartas = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        verVida = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        verNombre = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        verTipo = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        verDanio = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        verElixir = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         iniUser = new javax.swing.JTextField();
@@ -254,20 +269,20 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(42, 42, 42)
                 .addComponent(cartaAgregar)
-                .addGap(63, 63, 63)
+                .addGap(65, 65, 65)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
+                .addContainerGap(134, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(84, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(61, 61, 61))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(213, 213, 213)
                 .addComponent(cartaAgregar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(90, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
 
         tabCartas.addTab("Cartas", jPanel3);
@@ -556,6 +571,97 @@ public class Principal extends javax.swing.JFrame {
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        VerInfo.setText("Ver Info");
+        VerInfo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                VerInfoActionPerformed(evt);
+            }
+        });
+        menuPopUp.add(VerInfo);
+
+        Modificar.setText("Modificar");
+        menuPopUp.add(Modificar);
+
+        jLabel20.setText("Nombre");
+
+        verVida.setEditable(false);
+
+        jLabel21.setText("Vida");
+
+        verNombre.setEditable(false);
+
+        jLabel22.setText("Daño");
+
+        verTipo.setEditable(false);
+
+        jLabel23.setText("Tipo");
+
+        verDanio.setEditable(false);
+
+        jLabel24.setText("Elixir");
+
+        verElixir.setEditable(false);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel21)
+                    .addComponent(jLabel22)
+                    .addComponent(jLabel20)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel24))
+                .addGap(70, 70, 70)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(verTipo)
+                    .addComponent(verNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                    .addComponent(verVida)
+                    .addComponent(verDanio)
+                    .addComponent(verElixir))
+                .addContainerGap(91, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(verNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(verVida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel20)
+                        .addGap(30, 30, 30)
+                        .addComponent(jLabel21)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22)
+                    .addComponent(verDanio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel23)
+                    .addComponent(verTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel24)
+                    .addComponent(verElixir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(77, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout InfoCartasLayout = new javax.swing.GroupLayout(InfoCartas.getContentPane());
+        InfoCartas.getContentPane().setLayout(InfoCartasLayout);
+        InfoCartasLayout.setHorizontalGroup(
+            InfoCartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        InfoCartasLayout.setVerticalGroup(
+            InfoCartasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -793,9 +899,12 @@ public class Principal extends javax.swing.JFrame {
     private void arbolitoLindoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbolitoLindoMouseClicked
         if (evt.isMetaDown()) {
             int row = arbolitoLindo.getClosestRowForLocation(evt.getX(), evt.getY());
+            arbolitoLindo.setSelectionRow(row);
             Object v1 = arbolitoLindo.getSelectionPath().getLastPathComponent();
             nodoSeleccionado = (DefaultMutableTreeNode) v1;
-
+            if (nodoSeleccionado.getUserObject() instanceof Cartas) {
+                menuPopUp.show(evt.getComponent(), evt.getX(), evt.getY());
+            }
         }
     }//GEN-LAST:event_arbolitoLindoMouseClicked
 
@@ -857,6 +966,7 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 case 7:
                     carta = new PandillaDuendes(cartasNombre.getText(), Integer.parseInt(cartasVida.getText()), Integer.parseInt(cartasDanio.getText()));
+                    System.out.println(carta.tipo());
                     break;
             }
             boolean existe = false;
@@ -886,6 +996,10 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
             modeloA.reload();
+            cartasDanio.setText("");
+            cartasNombre.setText("");
+            cartasVida.setText("");
+            CrearCarta.setVisible(false);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -894,6 +1008,17 @@ public class Principal extends javax.swing.JFrame {
         CrearCarta.setLocationRelativeTo(jdPrincipal);
         CrearCarta.setVisible(true);
     }//GEN-LAST:event_cartaAgregarActionPerformed
+
+    private void VerInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VerInfoActionPerformed
+        verNombre.setText(((Cartas)nodoSeleccionado.getUserObject()).getNombre());
+        verDanio.setText(String.valueOf(((Cartas)nodoSeleccionado.getUserObject()).getPuntosDanio()));
+        verVida.setText(String.valueOf(((Cartas)nodoSeleccionado.getUserObject()).getPuntosVida()));
+        verTipo.setText(((Cartas)nodoSeleccionado.getUserObject()).tipo());
+        verElixir.setText(String.valueOf(((Cartas)nodoSeleccionado.getUserObject()).costeElixir()));
+        InfoCartas.pack();
+        InfoCartas.setLocationRelativeTo(jdPrincipal);
+        InfoCartas.setVisible(true);
+    }//GEN-LAST:event_VerInfoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -966,6 +1091,9 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog CrearCarta;
+    private javax.swing.JDialog InfoCartas;
+    private javax.swing.JMenuItem Modificar;
+    private javax.swing.JMenuItem VerInfo;
     private javax.swing.JTree arbolitoLindo;
     private javax.swing.JButton cartaAgregar;
     private javax.swing.JTextField cartasDanio;
@@ -1004,6 +1132,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1018,15 +1151,22 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JDialog jdPrincipal;
     private javax.swing.JLabel jlClan;
     private javax.swing.JList<String> jlClanAmiguitos;
+    private javax.swing.JPopupMenu menuPopUp;
     private javax.swing.JMenu menupLogin;
     private javax.swing.JMenu menupSalir;
     private javax.swing.JButton opClan;
     private javax.swing.JTabbedPane tabCartas;
+    private javax.swing.JTextField verDanio;
+    private javax.swing.JTextField verElixir;
+    private javax.swing.JTextField verNombre;
+    private javax.swing.JTextField verTipo;
+    private javax.swing.JTextField verVida;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Usuario> usuarios = new ArrayList<>();
     private Usuario usuarioSelected;
